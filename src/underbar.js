@@ -51,8 +51,7 @@
       for (let i = 0; i < collection.length; i++) {
         iterator(collection[i], i, collection);
       }
-    }
-    else if (typeof collection === 'object') {
+    } else if (typeof collection === 'object') {
       for (let key in collection) {
         iterator(collection[key], key, collection);
       }
@@ -78,6 +77,13 @@
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
+    let results = [];
+    _.each(collection, function(item) {
+      if (test(item)) {
+        results.push(item);
+      }
+    });
+    return results;
   };
 
   // Return all elements of an array that don't pass a truth test.

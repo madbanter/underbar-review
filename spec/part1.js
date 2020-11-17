@@ -253,7 +253,7 @@
         var isOdd = function(num) { return num % 2 !== 0; };
         var odds = [1, 2, 3, 4, 5];
 
-        expect(odds).to.eql([1, 3, 5]);
+        expect(_.filter(odds, isOdd)).to.eql([1, 3, 5]);
       });
 
       it('should produce a brand new array instead of modifying the input array', function() {
