@@ -165,7 +165,7 @@
   //          No accumulator is given so the first element is used.
   _.reduce = function(collection, iterator, accumulator) {
     let isAccumulator = arguments.length < 3;
-    _.each(collection, function (item, collection) {
+    _.each(collection, function (item) {
       if (isAccumulator) {
         isAccumulator = false;
         accumulator = item;
