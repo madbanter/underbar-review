@@ -330,6 +330,13 @@
   // input array. For a tip on how to make a copy of an array, see:
   // http://mdn.io/Array.prototype.slice
   _.shuffle = function(array) {
+    let result = [];
+    let arrayCopy = array.slice();
+    while (arrayCopy.length > 0) {
+      let order = Math.floor(Math.random() * arrayCopy.length);
+      result.push(arrayCopy.splice(order, 1)[0]);
+    }
+    return result;
   };
 
 
