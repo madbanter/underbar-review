@@ -93,11 +93,23 @@
     return _.filter(collection, function (item) {
       return !test(item);
     });
-
   };
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array, isSorted, iterator) {
+    let results = [];
+    let outputs = [];
+    if (!iterator) {
+      iterator = _.identity;
+    }
+    _.each(array, function (item) {
+      let output = iterator(item);
+      if (!outputs.includes(output)) {
+        results.push(item);
+        outputs.push(output);
+      }
+    });
+    return results;
   };
 
 
